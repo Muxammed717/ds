@@ -1,0 +1,286 @@
+.academy-about {
+    animation: fadeInPage 0.8s ease-out;
+    background-color: var(--bg-main);
+}
+
+.about-banner {
+    background-color: var(--primary);
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 15% 45%, rgba(232, 240, 214, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 85% 15%, rgba(232, 240, 214, 0.08) 0%, transparent 35%);
+    pointer-events: none;
+}
+
+.banner-content h1 {
+    font-size: 4.2rem;
+    font-weight: 900;
+    margin-bottom: 24px;
+    background: linear-gradient(to right, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+.banner-content p {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.vision-module {
+    padding: 100px 0;
+    background-color: var(--bg-secondary);
+}
+
+.vision-card {
+    background: #fff;
+    padding: 60px;
+    border-radius: 32px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.vision-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: var(--primary);
+}
+
+.icon-pulse {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+.vision-card h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-weight: 850;
+    color: var(--text-main);
+}
+
+.vision-card p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.journey-track {
+    padding: 100px 0;
+    background-color: var(--primary-dark);
+    color: #fff;
+    position: relative;
+}
+
+.timeline-wrapper {
+    max-width: 900px;
+    margin: 60px auto 0;
+    position: relative;
+}
+
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.milestone-item {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+    position: relative;
+    width: 100%;
+}
+
+.milestone-marker {
+    width: 24px;
+    height: 24px;
+    background: var(--secondary);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid var(--primary-dark);
+    z-index: 5;
+}
+
+.milestone-box {
+    width: 44%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.milestone-box:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--secondary);
+}
+
+.milestone-year {
+    color: var(--secondary);
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.milestone-item:nth-child(odd) .milestone-box {
+    margin-right: auto;
+    text-align: right;
+}
+
+.milestone-item:nth-child(even) .milestone-box {
+    margin-left: auto;
+    text-align: left;
+}
+
+.impact-stats {
+    background: var(--bg-main);
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+}
+
+.stats-dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 950;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .banner-content h1 {
+        font-size: 3rem;
+    }
+
+    .timeline-wrapper::before {
+        left: 24px;
+    }
+
+    .milestone-item {
+        justify-content: flex-start;
+    }
+
+    .milestone-marker {
+        left: 24px;
+        transform: none;
+    }
+
+    .milestone-box {
+        width: 85%;
+        margin-left: 60px !important;
+        text-align: left !important;
+    }
+
+    .stats-dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.on-scroll-reveal {
+    opacity: 0;
+    transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.on-scroll-reveal.is-revealed {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+.slide-up {
+    transform: translateY(40px);
+}
+
+.reveal-left {
+    transform: translateX(-40px);
+}
+
+.reveal-right {
+    transform: translateX(40px);
+}
+
+.fade-in {
+    transform: scale(0.95);
+}
+
+.animate-delay-1 {
+    transition-delay: 0.15s;
+}
+
+.animate-delay-2 {
+    transition-delay: 0.3s;
+}
+
+.icon-pulse svg {
+    animation: heartBeat 2s infinite ease-in-out;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

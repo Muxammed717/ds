@@ -1,0 +1,137 @@
+.navbar {
+    background: var(--bg-main);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary);
+    color: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: -2px;
+    line-height: 1;
+    font-family: sans-serif;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-main {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--primary);
+    letter-spacing: 0.02em;
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.mobile-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        background: white;
+        padding-top: var(--spacing-xl);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .mobile-icon {
+        display: block;
+    }
+}
+
+/* Adjust mobile icon to not be alone if needed, but user-actions handles it */
+/* Adjust mobile icon to not be alone if needed, but user-actions handles it */
+.mobile-icon {
+    margin-left: 0;
+}
+
+.desktop-lang-switch {
+    display: block !important;
+}
+
+@media screen and (max-width: 768px) {
+    .desktop-lang-switch {
+        display: none !important;
+    }
+
+    .mobile-lang-switch {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .mobile-lang-switch {
+        display: none;
+    }
+}
