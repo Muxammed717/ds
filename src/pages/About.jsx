@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { FaRocket, FaPalette, FaUserTie, FaGraduationCap } from 'react-icons/fa';
+import { FaRocket, FaLightbulb, FaHandshake, FaGraduationCap } from 'react-icons/fa';
 import './About.css';
 
 const StatCounter = ({ targetValue, duration = 2000, label = '' }) => {

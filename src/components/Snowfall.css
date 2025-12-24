@@ -1,0 +1,46 @@
+.snowfall-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -20px;
+    background-color: white;
+    color: white;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    animation: fall linear infinite;
+    user-select: none;
+    z-index: 10000;
+}
+
+.snowflake.icon {
+    background-color: transparent;
+    border-radius: 0;
+    line-height: 1;
+}
+
+.snowflake.circle {
+    filter: blur(1px);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(var(--sway)) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(0) rotate(360deg);
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaSnowflake } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 import './Navbar.css';
 
@@ -14,12 +14,30 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container navbar-container">
         <Link to="/" className="logo-container">
-          <div className="logo-icon">DS</div>
+          <div className="logo-icon">
+            <FaSnowflake
+              style={{
+                position: 'absolute',
+                top: '-8px',
+                right: '-8px',
+                color: '#0ea5e9',
+                fontSize: '14px',
+                animation: 'spin 4s linear infinite'
+              }}
+            />
+            DS
+          </div>
           <div className="logo-text">
             <span className="logo-main">DataSite</span>
             <span className="logo-sub">ACADEMY</span>
           </div>
         </Link>
+        <style>{`
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+        `}</style>
 
         {/* Desktop Language Switcher - Visible on desktop */}
         <div style={{ marginLeft: 'auto', marginRight: '1rem', display: 'none' }} className="desktop-lang-switch">

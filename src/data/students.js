@@ -8,31 +8,24 @@ export const mockStudents = [
         id: 'DS2025',
         name: 'Abdullayev Botir',
         course: 'Frontend React Bootcamp',
-        status: 'paid', // 'paid' - to'langan, 'unpaid' - to'lanmagan, 'pending' - kutilmoqda
-        nextPayment: '2026-01-15'
+        status: 'paid', // 'paid', 'unpaid', 'pending'
+        lastPayment: '2024-12-15',
+        nextPayment: '2025-01-15'
     },
     {
         id: 'DS2026',
         name: 'Karimov Sardor',
         course: 'Python Backend Mastery',
         status: 'unpaid',
-        nextPayment: '2025-12-20'
+        lastPayment: '2024-11-20',
+        nextPayment: '2024-12-20'
     },
     {
         id: 'DS2027',
         name: 'Tursunova Malika',
         course: 'UI/UX Design',
         status: 'pending',
-        nextPayment: '2025-12-25'
-    },
-    // Yangi o'quvchini shu yerga qo'shing:
-    /*
-    {
-        id: 'DS2025004',
-        name: 'Ismingiz Familiyangiz',
-        course: 'Kurs nomi',
-        status: 'paid',
-        nextPayment: '2026-02-01'
-    },
-    */
+        lastPayment: '2024-11-25',
+        nextPayment: '2024-12-25'
+    }
 ];

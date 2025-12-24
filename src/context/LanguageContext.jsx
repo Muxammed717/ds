@@ -66,6 +66,7 @@ const translations = {
             paymentStatus: 'To\'lov Holati',
             paid: 'To\'langan',
             unpaid: 'To\'lanmagan',
+            lastPayment: 'Oxirgi To\'lov',
             nextPayment: 'Keyingi To\'lov',
             payNow: 'Hozir To\'lash'
         },
@@ -85,7 +86,10 @@ const translations = {
             name: 'Ism Familiya',
             course: 'Kurs',
             status: 'Holat',
+            lastPayment: 'Oxirgi To\'lov',
             nextPayment: 'Keyingi To\'lov',
+            markPaid: 'To\'lov qilindi',
+            markUnpaid: 'To\'lov qilinmadi',
             actions: 'Amallar'
         },
         monitoring: {
@@ -102,6 +106,14 @@ const translations = {
                 studentDist: 'O\'quvchilar Taqsimoti',
                 paymentStats: 'To\'lov Statistikasi'
             },
+            live: {
+                title: 'JONLI KUZATUV',
+                visitors: 'Hozirgi foydalanuvchilar',
+                uptime: 'Tizim barqarorligi',
+                throughput: 'Ma\'lumotlar oqimi',
+                status: 'Xavfsizlik holati',
+                logs: 'Tizim qaydlari'
+            },
             loginTitle: 'Monitoring Kirish',
             error: 'Login yoki parol xato!'
         },
@@ -109,10 +121,30 @@ const translations = {
             desc: 'Raqamli yaratuvchilar va dasturchilarning yangi avlodini tarbiyalaymiz.',
             quickLinks: 'Tezkor Havolalar',
             socials: 'Ijtimoiy Tarmoqlar',
-            rights: 'Barcha huquqlar himoyalangan.'
+            contactInfo: 'Kontaktlar',
+            rights: 'Barcha huquqlar himoyalangan.',
+            socialLinks: {
+                telegram: 'https://t.me/datasite_academy',
+                instagram: 'https://instagram.com/datasite_academy',
+                youtube: 'https://youtube.com/@datasite_academy'
+            },
+            phone: '+998-95-061-64-66',
+            email: 'datasite_academy@gmail.com',
+            address: '📍 Manzil: A.Xodjayev 38',
+            landmark: '📍 Mo\'ljal: DX binosi 4-qavat, Chorsu, Namangan',
+            newsletter: {
+                title: 'Yangiliklar',
+                desc: 'Kelajak texnologiyalari haqidagi yangiliklardan xabardor bo\'ling.',
+                placeholder: 'Email manzilingiz',
+                btn: 'Obuna bo\'lish'
+            },
+            legal: {
+                privacy: 'Maxfiylik Siyosati',
+                terms: 'Foydalanish Shartlari'
+            }
         },
         courses: {
-            title: 'Kurslarimizni Keshf Eting',
+            title: 'Yangi Natijalar Kashf Eting',
             subtitle: 'Malakangizni oshirish uchun mukammal kursni toping.',
             instructor: 'Mentor',
             experience: 'Tajriba',
@@ -237,6 +269,7 @@ const translations = {
             paymentStatus: 'Payment Status',
             paid: 'Paid',
             unpaid: 'Unpaid',
+            lastPayment: 'Last Payment',
             nextPayment: 'Next Payment',
             payNow: 'Pay Now'
         },
@@ -256,7 +289,10 @@ const translations = {
             name: 'Full Name',
             course: 'Course',
             status: 'Status',
+            lastPayment: 'Last Payment',
             nextPayment: 'Next Payment',
+            markPaid: 'Mark Paid',
+            markUnpaid: 'Mark Unpaid',
             actions: 'Actions'
         },
         monitoring: {
@@ -273,6 +309,14 @@ const translations = {
                 studentDist: 'Student Distribution',
                 paymentStats: 'Payment Statistics'
             },
+            live: {
+                title: 'LIVE TRACKING',
+                visitors: 'Concurrent Visitors',
+                uptime: 'System Uptime',
+                throughput: 'Data Throughput',
+                status: 'Security Status',
+                logs: 'System Logs'
+            },
             loginTitle: 'Monitoring Login',
             error: 'Invalid username or password!'
         },
@@ -280,10 +324,30 @@ const translations = {
             desc: 'Empowering the next generation of digital creators and developers through world-class education.',
             quickLinks: 'Quick Links',
             socials: 'Socials',
-            rights: 'All rights reserved.'
+            contactInfo: 'Contact Info',
+            rights: 'All rights reserved.',
+            socialLinks: {
+                telegram: 'https://t.me/datasite_academy',
+                instagram: 'https://instagram.com/datasite_academy',
+                youtube: 'https://youtube.com/@datasite_academy'
+            },
+            phone: '+998-95-061-64-66',
+            email: 'datasite_academy@gmail.com',
+            address: '📍 Address: A.Xodjayev 38',
+            landmark: '📍 Landmark: DX building 4th floor, Chorsu, Namangan',
+            newsletter: {
+                title: 'Newsletter',
+                desc: 'Stay updated with the latest in future technologies.',
+                placeholder: 'Your email address',
+                btn: 'Subscribe'
+            },
+            legal: {
+                privacy: 'Privacy Policy',
+                terms: 'Terms of Service'
+            }
         },
         courses: {
-            title: 'Explore Our Courses',
+            title: 'Discover New Results',
             subtitle: 'Find the perfect course to upgrade your skills.',
             instructor: 'Instructor',
             experience: 'Experience',

@@ -166,6 +166,14 @@ const Status = () => {
                             </div>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <span style={{ color: 'var(--text-secondary)' }}>{t.status?.lastPayment || 'Last Payment'}:</span>
+                                <span style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                    <FaCalendarAlt style={{ color: 'var(--text-secondary)' }} />
+                                    {result.lastPayment || '—'}
+                                </span>
+                            </div>
+
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                 <span style={{ color: 'var(--text-secondary)' }}>{t.status?.nextPayment || 'Next Payment'}:</span>
                                 <span style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                     <FaCalendarAlt style={{ color: 'var(--text-secondary)' }} />

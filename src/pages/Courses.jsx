@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaClock, FaStar, FaAward, FaExternalLinkAlt } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 import { coursesData } from '../data/courses';
+import { useNavigate } from 'react-router-dom';
 
 const FilterButton = ({ active, children, onClick }) => (
     <button
@@ -25,6 +26,7 @@ const FilterButton = ({ active, children, onClick }) => (
 
 const Courses = () => {
     const { t } = useLanguage();
+    const navigate = useNavigate();
     const [filter, setFilter] = useState('All');
 
     const filteredCourses = filter === 'All'
@@ -33,10 +35,11 @@ const Courses = () => {
 
     const categories = [
         { key: 'All', label: t.courses.filter.all },
-        { key: 'Development', label: t.courses.filter.dev },
-        { key: 'Data Science', label: t.courses.filter.data },
-        { key: 'Design', label: t.courses.filter.design },
-        { key: 'Marketing', label: t.courses.filter.marketing }
+        { key: 'Boshlang\'ich', label: 'Boshlang\'ich' },
+        { key: 'Dasturlash', label: 'Dasturlash' },
+        { key: 'Individual', label: 'Individual' },
+        { key: 'Boshqa', label: 'Boshqa' },
+        { key: 'Til', label: 'Til' }
     ];
 
     return (
@@ -89,15 +92,6 @@ const Courses = () => {
                             </div>
 
                             <div style={{ padding: '2rem' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                                    <div style={{ display: 'flex', color: '#FBBF24', fontSize: '0.9rem' }}>
-                                        {[...Array(5)].map((_, i) => (
-                                            <FaStar key={i} style={{ color: i < Math.floor(course.rating) ? '#FBBF24' : 'var(--border)' }} />
-                                        ))}
-                                    </div>
-                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>{course.rating}</span>
-                                </div>
-
                                 <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '1.5rem', lineHeight: 1.3, color: 'var(--text-main)' }}>{course.title}</h3>
 
                                 {/* Teacher Info */}
@@ -109,14 +103,22 @@ const Courses = () => {
                                     backgroundColor: 'var(--bg-main)',
                                     borderRadius: '1rem',
                                     marginBottom: '1.5rem',
-                                    border: '1px solid var(--border)'
-                                }}>
+                                    border: '1px solid var(--border)',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease'
+                                }}
+                                    onClick={() => navigate(`/instructor/${course.instructorSlug}`)}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+                                        e.currentTarget.style.borderColor = 'var(--primary)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.backgroundColor = 'var(--bg-main)';
+                                        e.currentTarget.style.borderColor = 'var(--border)';
+                                    }}>
                                     <img src={course.instructorImg} alt={course.instructor} style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--primary)' }} />
                                     <div>
                                         <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)' }}>{course.instructor}</p>
-                                        <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                                            <FaAward style={{ color: 'var(--primary)' }} /> {course.instructorExp} {t.courses.years} {t.courses.experience}
-                                        </p>
                                     </div>
                                 </div>
 
@@ -125,8 +127,16 @@ const Courses = () => {
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
                                             <FaClock /> {course.duration}
                                         </div>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                                            <FaExternalLinkAlt /> {course.students} {t.courses.students}
+                                        </div>
                                     </div>
                                     <div style={{ textAlign: 'right' }}>
+                                        {course.oldPrice && (
+                                            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', textDecoration: 'line-through', marginBottom: '0.25rem' }}>
+                                                {course.oldPrice}
+                                            </p>
+                                        )}
                                         <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary)' }}>{course.price}</p>
                                     </div>
                                 </div>
