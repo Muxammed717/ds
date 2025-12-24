@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaTimes } from 'react-icons/fa';
+import { coursesData } from '../data/courses';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
-        location: 'Toshkent shahri',
+        course: coursesData[0]?.title || '',
         message: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -115,7 +116,7 @@ const Contact = () => {
 <b>Yangi xabar!</b>
 <b>Ism:</b> ${submissionData.name}
 <b>Telefon:</b> ${submissionData.phone}
-<b>Joylashuv:</b> ${submissionData.location}
+<b>Kurs:</b> ${submissionData.course}
 <b>Xabar:</b> ${submissionData.message}
         `;
 
@@ -131,7 +132,7 @@ const Contact = () => {
                 type: 'success',
                 message: 'Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanamiz.'
             });
-            setFormData({ name: '', phone: '', location: 'Toshkent shahri', message: '' });
+            setFormData({ name: '', phone: '', course: coursesData[0]?.title || '', message: '' });
         } catch (error) {
             setNotification({
                 show: true,
@@ -384,11 +385,11 @@ const Contact = () => {
                                 color: 'var(--text-main)',
                                 fontWeight: '500'
                             }}>
-                                Joylashuvni tanlang
+                                Kursni tanlang
                             </label>
                             <select
-                                name="location"
-                                value={formData.location}
+                                name="course"
+                                value={formData.course}
                                 onChange={handleChange}
                                 required
                                 style={{
@@ -404,20 +405,11 @@ const Contact = () => {
                                     cursor: 'pointer'
                                 }}
                             >
-                                <option value="Toshkent shahri">Toshkent shahri</option>
-                                <option value="Toshkent viloyati">Toshkent viloyati</option>
-                                <option value="Andijon">Andijon</option>
-                                <option value="Buxoro">Buxoro</option>
-                                <option value="Farg'ona">Farg'ona</option>
-                                <option value="Jizzax">Jizzax</option>
-                                <option value="Xorazm">Xorazm</option>
-                                <option value="Namangan">Namangan</option>
-                                <option value="Navoiy">Navoiy</option>
-                                <option value="Qashqadaryo">Qashqadaryo</option>
-                                <option value="Samarqand">Samarqand</option>
-                                <option value="Sirdaryo">Sirdaryo</option>
-                                <option value="Surxondaryo">Surxondaryo</option>
-                                <option value="Qoraqalpog'iston">Qoraqalpog'iston</option>
+                                {coursesData.map((course) => (
+                                    <option key={course.id} value={course.title}>
+                                        {course.title}
+                                    </option>
+                                ))}
                             </select>
                         </div>
 

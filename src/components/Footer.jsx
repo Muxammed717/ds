@@ -31,7 +31,7 @@ const Footer = () => {
                         <li><a href="/contact">{t.nav.contact}</a></li>
                     </ul>
                 </div>
-                
+
                 <div className="footer-col contact-col">
                     <h4 className="footer-heading">{t.footer.contactInfo}</h4>
                     <ul className="footer-contact-list">
