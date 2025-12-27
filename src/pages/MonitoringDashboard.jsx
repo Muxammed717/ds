@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { mockStudents as initialStudents } from '../data/students';
 import { coursesData } from '../data/courses';
 import {
     FaUsers, FaMoneyBillWave, FaBookOpen, FaChartPie,
-    FaSignOutAlt, FaShieldAlt, FaServer,
-    FaChartLine, FaTerminal, FaDatabase, FaNetworkWired
+    FaSignOutAlt, FaShieldAlt, FaDatabase
 } from 'react-icons/fa';
 
 const MonitoringDashboard = () => {
@@ -105,291 +104,155 @@ const MonitoringDashboard = () => {
                         </div>
                     </div>
                 </div>
-                );
+            </div>
+        </div>
+    );
 };
 
-                export default MonitoringDashboard;
-                const QuickStat = ({label, value, sub, color, icon}) => (
-                <div style={card}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                        <div style={cardLabel}>{label}</div>
-                        <div style={{ color: color || '#64748b', fontSize: '1.25rem' }}>{icon}</div>
-                    </div>
-                    <div style={{ ...cardValue, color: color || '#f8fafc' }}>{value} <span style={cardSub}>{sub}</span></div>
-                </div>
-                );
+// Sub-components
+const QuickStat = ({ label, value, sub, color, icon }) => (
+    <div style={card}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div style={cardLabel}>{label}</div>
+            <div style={{ color: color || '#64748b', fontSize: '1.25rem' }}>{icon}</div>
+        </div>
+        <div style={{ ...cardValue, color: color || '#f8fafc' }}>{value} <span style={cardSub}>{sub}</span></div>
+    </div>
+);
 
-                const StatusTile = ({icon, label, status}) => (
-                <div style={tile}>
-                    <div style={tileIcon}>{icon}</div>
-                    <div>
-                        <div style={tileLabel}>{label}</div>
-                        <div style={tileStatus}>{status}</div>
-                    </div>
-                </div>
-                );
-
-                // Styles
-                const pageStyle = {
-                    backgroundColor: '#0a0a0a',
-                color: '#e2e8f0',
-                minHeight: '100vh',
-                padding: '2rem 0',
-                fontFamily: "'Inter', 'JetBrains Mono', monospace",
-                letterSpacing: '-0.2px'
+// Styles
+const pageStyle = {
+    backgroundColor: '#0a0a0a',
+    color: '#e2e8f0',
+    minHeight: '100vh',
+    padding: '2rem 0',
+    fontFamily: "'Inter', 'JetBrains Mono', monospace",
+    letterSpacing: '-0.2px'
 };
 
-                const headerStyle = {
-                    display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '2.5rem',
-                borderBottom: '1px solid #1e293b',
-                paddingBottom: '1.5rem'
+const headerStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '2.5rem',
+    borderBottom: '1px solid #1e293b',
+    paddingBottom: '1.5rem'
 };
 
-                const statusInd = {
-                    width: '10px',
-                height: '10px',
-                backgroundColor: '#10b981',
-                borderRadius: '2px'
+const titleStyle = {
+    fontSize: '1.25rem',
+    fontWeight: 700,
+    color: '#f1f5f9',
+    margin: 0
 };
 
-                const titleStyle = {
-                    fontSize: '1.25rem',
-                fontWeight: 700,
-                color: '#f1f5f9',
-                margin: 0
+const logoutBtn = {
+    backgroundColor: '#1e293b',
+    border: 'none',
+    color: '#94a3b8',
+    padding: '0.6rem 1.25rem',
+    borderRadius: '4px',
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem'
 };
 
-                const verStyle = {
-                    fontSize: '0.7rem',
-                color: '#475569',
-                backgroundColor: '#1e293b',
-                padding: '2px 6px',
-                borderRadius: '3px'
+const topGrid = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '1.5rem',
+    marginBottom: '1.5rem'
 };
 
-                const timeDisplay = {
-                    textAlign: 'right'
+const card = {
+    backgroundColor: '#111827',
+    border: '1px solid #1e293b',
+    padding: '1.5rem',
+    borderRadius: '4px'
 };
 
-                const timeLabel = {
-                    display: 'block',
-                fontSize: '0.6rem',
-                color: '#64748b',
-                fontWeight: 700
+const cardLabel = {
+    fontSize: '0.7rem',
+    color: '#64748b',
+    fontWeight: 800,
+    marginBottom: '0.5rem'
 };
 
-                const timeValue = {
-                    fontSize: '1.1rem',
-                fontWeight: 600,
-                fontFamily: 'monospace',
-                color: '#10b981'
+const cardValue = {
+    fontSize: '1.75rem',
+    fontWeight: 700,
+    color: '#f8fafc'
 };
 
-                const logoutBtn = {
-                    backgroundColor: '#1e293b',
-                border: 'none',
-                color: '#94a3b8',
-                padding: '0.6rem 1.25rem',
-                borderRadius: '4px',
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
+const cardSub = {
+    fontSize: '0.8rem',
+    color: '#475569',
+    fontWeight: 400
 };
 
-                const topGrid = {
-                    display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
-                gap: '1.5rem',
-                marginBottom: '1.5rem'
+const mainLayout = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '1.5rem'
 };
 
-                const card = {
-                    backgroundColor: '#111827',
-                border: '1px solid #1e293b',
-                padding: '1.5rem',
-                borderRadius: '4px'
+const panel = {
+    backgroundColor: '#111827',
+    border: '1px solid #1e293b',
+    padding: '1.5rem',
+    borderRadius: '4px'
 };
 
-                const cardLabel = {
-                    fontSize: '0.7rem',
-                color: '#64748b',
-                fontWeight: 800,
-                marginBottom: '0.5rem'
+const panelTitle = {
+    fontSize: '0.85rem',
+    fontWeight: 800,
+    color: '#94a3b8',
+    marginBottom: '1.5rem',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    borderBottom: '1px solid #1e293b',
+    paddingBottom: '0.75rem'
 };
 
-                const cardValue = {
-                    fontSize: '1.75rem',
-                fontWeight: 700,
-                color: '#f8fafc'
+const distList = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1.25rem'
 };
 
-                const cardSub = {
-                    fontSize: '0.8rem',
-                color: '#475569',
-                fontWeight: 400
+const distItem = {};
+
+const distHeader = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginBottom: '0.5rem'
 };
 
-                const mainLayout = {
-                    display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '1.5rem'
+const distName = {
+    fontSize: '0.7rem',
+    fontWeight: 700,
+    color: '#cbd5e1'
 };
 
-                const leftColumn = {
-                    display: 'flex',
-                flexDirection: 'column',
-                gap: '1.5rem'
+const distValue = {
+    fontSize: '0.8rem',
+    fontWeight: 700,
+    color: '#10b981'
 };
 
-                const rightColumn = {
-                    display: 'flex',
-                flexDirection: 'column',
-                gap: '1.5rem'
+const progBarBg = {
+    height: '4px',
+    backgroundColor: '#1e293b',
+    borderRadius: '2px'
 };
 
-                const panel = {
-                    backgroundColor: '#111827',
-                border: '1px solid #1e293b',
-                padding: '1.5rem',
-                borderRadius: '4px'
+const progBar = {
+    height: '100%',
+    backgroundColor: '#334155'
 };
 
-                const panelTitle = {
-                    fontSize: '0.85rem',
-                fontWeight: 800,
-                color: '#94a3b8',
-                marginBottom: '1.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                borderBottom: '1px solid #1e293b',
-                paddingBottom: '0.75rem'
-};
-
-                const distList = {
-                    display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem'
-};
-
-                const distItem = { };
-
-                const distHeader = {
-                    display: 'flex',
-                justifyContent: 'space-between',
-                marginBottom: '0.5rem'
-};
-
-                const distName = {
-                    fontSize: '0.7rem',
-                fontWeight: 700,
-                color: '#cbd5e1'
-};
-
-                const distValue = {
-                    fontSize: '0.8rem',
-                fontWeight: 700,
-                color: '#10b981'
-};
-
-                const progBarBg = {
-                    height: '4px',
-                backgroundColor: '#1e293b',
-                borderRadius: '2px'
-};
-
-                const progBar = {
-                    height: '100%',
-                backgroundColor: '#334155'
-};
-
-                const statusGrid = {
-                    display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '1rem'
-};
-
-                const tile = {
-                    backgroundColor: '#111827',
-                border: '1px solid #1e293b',
-                padding: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                borderRadius: '4px'
-};
-
-                const tileIcon = {
-                    color: '#475569',
-                fontSize: '1.25rem'
-};
-
-                const tileLabel = {
-                    fontSize: '0.6rem',
-                fontWeight: 800,
-                color: '#64748b'
-};
-
-                const tileStatus = {
-                    fontSize: '0.9rem',
-                fontWeight: 700,
-                color: '#10b981'
-};
-
-                const terminalPanel = {
-                    backgroundColor: '#000',
-                border: '1px solid #1e293b',
-                padding: '1.5rem',
-                borderRadius: '4px',
-                flex: 1
-};
-
-                const logArea = {
-                    height: '320px',
-                overflowY: 'auto',
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: '0.75rem',
-                color: '#94a3b8',
-                lineHeight: '1.6'
-};
-
-                const logLine = {
-                    marginBottom: '4px'
-};
-
-                const logArrow = {
-                    color: '#475569'
-};
-
-                const summaryPanel = {
-                    backgroundColor: '#111827',
-                border: '1px solid #1e293b',
-                padding: '1.25rem',
-                borderRadius: '4px'
-};
-
-                const summaryStat = {
-                    display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-};
-
-                const sumLabel = {
-                    fontSize: '0.7rem',
-                fontWeight: 800,
-                color: '#64748b'
-};
-
-                const sumValue = {
-                    fontSize: '0.8rem',
-                fontWeight: 700,
-                color: '#cbd5e1'
-};
-
-                export default MonitoringDashboard;
+export default MonitoringDashboard;
