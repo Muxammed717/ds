@@ -16,6 +16,8 @@ const MonitoringDashboard = () => {
         totalRevenue: 0,
         activeCourses: 0,
         paidCount: 0,
+
+        
         unpaidCount: 0,
         courseDistribution: {},
         groupPerformance: []

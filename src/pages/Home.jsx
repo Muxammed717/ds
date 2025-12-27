@@ -114,7 +114,7 @@ const Home = () => {
 
                         <div className="highlight-card item-mentors">
                             <div className="mentors-preview">
-                                <img src="/src/assets/team_mentors.jpg" alt="Academy Mentors" />
+                                <img src="/team_mentors.jpg" alt="Academy Mentors" />
                             </div>
                             <h3>{t.home.features.mentors}</h3>
                             <p>{t.home.features.mentorsDesc}</p>
